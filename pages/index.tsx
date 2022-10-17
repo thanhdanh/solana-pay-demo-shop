@@ -5,7 +5,7 @@ import SiteHeading from '../components/SiteHeading'
 
 export default function HomePage() {
   // We get the public key of the connected wallet, if there is one
-  const { publicKey } = useWallet()
+  const publicKey = 'DH2YSh3NaxzRSPgJKNKy2JxvWyBUDrCdBh3cqHxaKEkC'
 
   return (
     <div className="flex flex-col items-stretch max-w-4xl gap-8 pt-24 m-auto">

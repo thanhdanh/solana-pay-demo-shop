@@ -15,6 +15,8 @@ export default function Checkout() {
   const qrRef = useRef<HTMLDivElement>(null)
 
   const amount = useMemo(() => calculatePrice(router.query), [router.query])
+  const isTransfer = useMemo(() => router.query.isTransfer === '1', [router.query])
+  const receiver = useMemo(() => router.query.receiver || shopAddress, [router.query])
 
   // Read the URL query (which includes our chosen products)
   const searchParams = new URLSearchParams();
@@ -42,8 +44,8 @@ export default function Checkout() {
   const connection = new Connection(endpoint)
 
   // Solana Pay transfer params
-  const urlParams: TransferRequestURLFields = {
-    recipient: shopAddress,
+  let urlParams: any = {
+    recipient: receiver,
     splToken: usdcAddress,
     amount,
     reference,
@@ -55,12 +57,15 @@ export default function Checkout() {
   useEffect(() => {
     // window.location is only available in the browser, so create the URL in here
     const { location } = window
-    const apiUrl = `${location.protocol}//${location.host}/api/makeTransaction?${searchParams.toString()}`
-    const urlParams: TransactionRequestURLFields = {
-      link: new URL(apiUrl),
-      label: "Cookies Inc",
-      message: "Thanks for your order! 🍪",
+    if (!isTransfer) {
+      const apiUrl = `${location.protocol}//${location.host}/api/makeTransaction?${searchParams.toString()}`
+      urlParams = {
+        link: new URL(apiUrl),
+        label: "Cookies Inc",
+        message: "Thanks for your order! 🍪",
+      }
     }
+    
     const solanaUrl = encodeURL(urlParams)
     const qr = createQR(solanaUrl, 512, 'transparent')
     if (qrRef.current && amount.isGreaterThan(0)) {

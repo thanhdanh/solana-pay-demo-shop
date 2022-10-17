@@ -11,7 +11,8 @@ import { MakeTransactionInputData, MakeTransactionOutputData } from "./api/makeT
 export default function Checkout() {
   const router = useRouter();
   const { connection } = useConnection();
-  const { publicKey, sendTransaction } = useWallet();
+  const publicKey = 'DH2YSh3NaxzRSPgJKNKy2JxvWyBUDrCdBh3cqHxaKEkC'
+  const { sendTransaction } = useWallet();
 
   // State to hold API response fields
   const [transaction, setTransaction] = useState<Transaction | null>(null);
