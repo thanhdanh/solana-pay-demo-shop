@@ -58,7 +58,7 @@ async function post(
     const buyerPublicKey = new PublicKey(account)
     const shopPublicKey = shopAddress
 
-    const network = WalletAdapterNetwork.Devnet
+    const network = WalletAdapterNetwork.Mainnet
     const endpoint = clusterApiUrl(network)
     const connection = new Connection(endpoint)
 

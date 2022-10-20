@@ -286,7 +286,7 @@
   dependencies:
     buffer "~6.0.3"
 
-"@solana/pay@^0.2.0":
+"@solana/pay@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@solana/pay/-/pay-0.2.4.tgz#5de8f187fdbd39839fa97c8e72450804757f14c9"
   dependencies:

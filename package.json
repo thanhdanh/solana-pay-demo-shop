@@ -9,7 +9,7 @@
     "my-ip": "node -e \"var ip = require('ip'); console.log(ip.address())\""
   },
   "dependencies": {
-    "@solana/pay": "^0.2.0",
+    "@solana/pay": "^0.2.4",
     "@solana/spl-token": "^0.2.0",
     "@solana/wallet-adapter-base": "^0.9.5",
     "@solana/wallet-adapter-react": "^0.15.4",
@@ -17,7 +17,7 @@
     "@solana/wallet-adapter-wallets": "^0.16.0",
     "@solana/web3.js": "^1.41.3",
     "@tailwindcss/forms": "^0.5.0",
-    "bignumber.js": "^9.0.2",
+    "bignumber.js": "^9.1.0",
     "next": "latest",
     "react": "^17.0.2",
     "react-circular-progressbar": "^2.0.4",
